@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title routerDirection = "back">Nueva receta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo">
+  <ion-grid class="gridGlob">
+    <ion-col>
+      <ion-row>
+        <ion-card style="max-height: 55%;background-color: white;">
+          <ion-card-header>Imagen:</ion-card-header>
+          <ion-card-content>
+            <ion-label color="danger " *ngIf = "errorImagen">El archivo seleccionado no es una imágen.</ion-label><br/>
+            <input type="file" accept="image/*" (change)="detectarArchivo($event)"/>
+            <ion-img *ngIf="url" [src]="url" src="" style="width: fit-content;height: fit-content; margin-top: 2%;"></ion-img>
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+      <ion-row>
+        <ion-card style="width: 100%">
+          <ion-card>
+            <ion-card-content>
+              <ion-label color="danger " *ngIf = "errorTitle">Tiene que introducir el nombre de la receta.</ion-label><br/>
+              <ion-label style="margin-bottom: 2%;">Título:</ion-label><br/>
+              <input type="text" style="margin-bottom: 2%;" [(ngModel)] = "titulo"/><br/>
+              <ion-label style="margin-bottom: 20px;">Propiedades:</ion-label><br/>
+              <input type="checkbox" class="prop" id="vegan" [(ngModel)]="vegan"/> Vegana<br/>
+              <input type="checkbox" class="prop" id="vegie" [(ngModel)]="vegie"/> Vegetariana<br/>
+              <input type="checkbox" class="prop" id="fishFree" [(ngModel)]="fishFree"/> Sin pescado<br/>
+              <input type="checkbox" class="prop" id="glutenFree" [(ngModel)]="glutenFree"/> Sin gluten<br/>
+              <input type="checkbox" class="prop" id="sugarFree" [(ngModel)]="sugarFree"/> Sin azúcar<br/>
+              <input type="checkbox" class="prop" id="saltFree" [(ngModel)]="saltFree"/> Sin sal<br/>
+              <br/>
+              <ion-label color="danger " *ngIf = "errorDesc">Tiene que introducir la manera de realizar la receta.</ion-label><br/>
+              <ion-label >Descripción:</ion-label><br/>
+              <textarea [(ngModel)] = "descripcion"></textarea>
+            </ion-card-content>
+          </ion-card>
+        </ion-card>
+      </ion-row>
+      <ion-row>
+        <ion-button color="success" class="anadir" style="margin-left: 2%;" (click)="anadir()">Añadir Receta</ion-button>
+        <ion-button color="danger" class="anadir" style="margin-left: 4%;" [routerLink] = "['/recetas']">Cancelar</ion-button>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+</ion-content>

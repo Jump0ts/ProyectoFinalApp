@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Configuración de usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo" style="text-align: -webkit-center;"> 
+  <ion-card style="margin-top: 100px;text-align: -webkit-center;">
+    <div class="contenedor" for="file-input">
+
+      <label for="file-input">
+        <ion-avatar class="imagen">
+          <img [src]="img"  (mouseover)="punteroEncima()" (mouseout)="punteroSale()" />
+        </ion-avatar>
+      </label>
+      <input id="file-input" type="file" accept="image/*" (change)="detectarArchivo($event)"/>
+    </div>
+    
+    <ion-card-content>
+      <ion-button color="primary" (click)="changeEmail()">Cambiar correo</ion-button>
+      <ion-button color="secondary" (click)="changePassword()">Cambiar contraseña</ion-button><br/>
+      <ion-row style="margin-top: 20px;">
+        <ion-label style="margin-right: 5px; margin-left: 22%;">Usuario:</ion-label>
+        <ion-input type="text" class="input-text" [value]="this.controlador.getUsuario().usuario" [(ngModel)]="user" (change)="cambioTexto()"></ion-input>
+      </ion-row>
+      <ion-button color="success" style="margin-top: 20px;" (click)="guardarCambios()" *ngIf="cambio || cambioImg">Guardar</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,23 @@
+
+
+<ion-content>
+  <ion-grid>
+    <h1 style="margin-left: 60%; background-color: orange; border-radius: 25%;">Login</h1>
+    <ion-card style="margin-top: 40%;">
+      
+      <ion-label color="danger " *ngIf = "error">El correo o la contraseña son incorrectas.</ion-label><br>
+      <ion-label>Correo electrónico:</ion-label>
+      <ion-input type="text" placeholder="Correo" [(ngModel)] = "correo"></ion-input>
+      <ion-label>Contraseña:</ion-label>
+      <ion-input type="password" placeholder="Contraseña" [(ngModel)] = "contrasena"></ion-input>
+      <ion-item style="width: 45%; height: 35px; margin-left: 5%;">
+        <ion-checkbox color="secondary" style="margin-top: 0px;" [(ngModel)] = "recuerda"></ion-checkbox><ion-label style="margin-top: -5px; margin-left: 2px;">Recordarme</ion-label>
+      </ion-item>
+      <ion-button (click)="login()">Iniciar sesión</ion-button>
+      <ion-button (click) = "register()">Registarse</ion-button>
+    </ion-card>
+    
+    
+    
+  </ion-grid>
+</ion-content>

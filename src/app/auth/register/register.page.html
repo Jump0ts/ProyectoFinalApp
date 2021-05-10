@@ -1,0 +1,29 @@
+
+
+<ion-content>
+  <ion-grid>
+    
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-card>
+          <ion-card-header><h1>Registarse</h1></ion-card-header>
+          <ion-card-content>
+            <ion-label color="danger " *ngIf = "errorEmpty">Deben rellenarse todos los campos.</ion-label><br>
+            <ion-label>Correo electrónico:</ion-label>
+            <ion-label color="danger " *ngIf = "errorCor">El correo ya está registrado.</ion-label>
+            <ion-input type="text" placeholder="Correo" [(ngModel)] = "correo"></ion-input>
+            <ion-label>Contraseña:</ion-label><ion-label color="danger " *ngIf = "errorContra">La contraseña debe ser de al menos 6 caracteres.</ion-label>
+            <ion-input type="password" placeholder="Contraseña" [(ngModel)] = "contrasena"></ion-input>
+            <ion-label>Repite la contraseña:</ion-label><ion-label color="danger " *ngIf = "errorContraRep">Las contraseñas no coinciden.</ion-label>
+            <ion-input type="password" placeholder="Contraseña" [(ngModel)] = "contrasenaRep"></ion-input>
+            <ion-label>Nombre:</ion-label>
+            <ion-input type="text" placeholder="Usuario" [(ngModel)] = "usuario"></ion-input>
+            <ion-button [routerLink] = "['/login']">Volver</ion-button>
+            <ion-button (click)="register()">Registarse</ion-button>
+          </ion-card-content>
+          
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

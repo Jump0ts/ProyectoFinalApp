@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Planificador de semana</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card style="height: fit-content;">
+          <ion-card-title>Lunes</ion-card-title>
+          <ion-card class="carta-comida" *ngFor="let receta of lunes" (click)="pinchaReceta(receta.id)">
+            <ion-card-title class="titulo-comida" >
+              <ion-label>{{receta.titulo}}</ion-label>
+            </ion-card-title>
+            <ion-card-content><ion-img [src]="receta.foto"></ion-img></ion-card-content>
+          </ion-card>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-title>Martes</ion-card-title>
+          <ion-card class="carta-comida" *ngFor="let receta of martes" (click)="pinchaReceta(receta.id)">
+            <ion-card-title class="titulo-comida" >
+              <ion-label>{{receta.titulo}}</ion-label>
+            </ion-card-title>
+            <ion-card-content><ion-img [src]="receta.foto"></ion-img></ion-card-content>
+          </ion-card>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-title>Miércoles</ion-card-title>
+          <ion-card class="carta-comida" *ngFor="let receta of miercoles" (click)="pinchaReceta(receta.id)">
+            <ion-card-title class="titulo-comida" >
+              <ion-label>{{receta.titulo}}</ion-label>
+            </ion-card-title>
+            <ion-card-content><ion-img [src]="receta.foto"></ion-img></ion-card-content>
+          </ion-card>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-title>Jueves</ion-card-title>
+          <ion-card class="carta-comida" *ngFor="let receta of jueves" (click)="pinchaReceta(receta.id)">
+            <ion-card-title class="titulo-comida" >
+              <ion-label>{{receta.titulo}}</ion-label>
+            </ion-card-title>
+            <ion-card-content><ion-img [src]="receta.foto"></ion-img></ion-card-content>
+          </ion-card>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-title>Viernes</ion-card-title>
+          <ion-card class="carta-comida" *ngFor="let receta of viernes" (click)="pinchaReceta(receta.id)">
+            <ion-card-title class="titulo-comida" >
+              <ion-label>{{receta.titulo}}</ion-label>
+            </ion-card-title>
+            <ion-card-content><ion-img [src]="receta.foto"></ion-img></ion-card-content>
+          </ion-card>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-title>Sábado</ion-card-title>
+          <ion-card class="carta-comida" *ngFor="let receta of sabado" (click)="pinchaReceta(receta.id)">
+            <ion-card-title class="titulo-comida" >
+              <ion-label>{{receta.titulo}}</ion-label>
+            </ion-card-title>
+            <ion-card-content><ion-img [src]="receta.foto"></ion-img></ion-card-content>
+          </ion-card>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-title>Domingo</ion-card-title>
+          <ion-card class="carta-comida" *ngFor="let receta of domingo" (click)="pinchaReceta(receta.id)">
+            <ion-card-title class="titulo-comida" >
+              <ion-label>{{receta.titulo}}</ion-label>
+            </ion-card-title>
+            <ion-card-content><ion-img [src]="receta.foto"></ion-img></ion-card-content>
+          </ion-card>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

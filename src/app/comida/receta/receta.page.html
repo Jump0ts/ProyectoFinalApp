@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title routerDirection = "back">{{receta?.titulo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo">
+  <ion-grid>
+    <ion-col>
+      <ion-row style="align-items: center;">
+        <ion-col></ion-col>
+        <ion-col size="10">
+          <ion-card style="height: 60%;background-color: white;">
+            <ion-img [src]="receta?.foto" style="width: 100%; height:100%;" ></ion-img>
+          </ion-card>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-card style="width: 100%; text-align: justify;">
+          <ion-card >
+            <ion-card-content><ion-label *ngFor="let desc of receta?.descripcion">{{desc}}<br/></ion-label></ion-card-content>
+          </ion-card>
+        </ion-card>
+      </ion-row>
+      <ion-row>
+        <ion-card style="height: fit-content;background-color: white; margin-left: 5%;">
+          <ion-row style="height: fit-content;">
+            <ion-col size="5">
+              <ion-img [src]="foto" style="width: 100%; height: 100%;"></ion-img>
+            </ion-col> 
+            <ion-col style="text-align: center;"><br/>
+              <ion-label>Autor: {{receta?.correoAutor}}</ion-label>
+              <br/>
+              <div>
+                <ion-row *ngIf="receta?.verificado">
+                  <ion-col>
+                    <ion-img [src]="likeImg" (click)="meGusta()" style="width: 50px;height: 50px;"></ion-img>
+                    <ion-label style="padding-right: 30%;"> {{receta?.likes.length}}</ion-label>
+                  </ion-col>
+                  <ion-col>
+                    <ion-img [src]="planificador" (click)="anadirDia()" style="width: 35px;height: 35px; margin-top: 10px;"></ion-img>
+                  </ion-col>
+                  <ion-col>
+                    <ion-img [src]="favImg" (click)="fav()" style="width: 35px;height: 35px;margin-top: 10px;"></ion-img>
+                  </ion-col>
+                </ion-row>
+              </div>
+              <br/>
+              <ion-label>Fecha: {{receta?.fecha}}</ion-label>
+              <ion-button *ngIf="!receta?.verificado" color="success" (click)="alerta('verificar')">Verificar</ion-button>
+              <ion-button *ngIf="!receta?.verificado" color="danger" (click)="alerta('eliminar')">Eliminar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+
+</ion-content>
